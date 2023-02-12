@@ -35,6 +35,14 @@ app.get(`/articles`, (req, res) => {
     });  }
 })
 
+app.delete(`/articles`, (req, res) => {
+    if (req.originalUrl.includes('favicon.ico')) {
+      res.status(204).end()
+    } else {
+      Article.deleteMany({});   
+    }
+})
+
 app.listen(3000, function(req) {
     console.log("Server started on port 3000");
 });

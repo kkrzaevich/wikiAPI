@@ -39,7 +39,9 @@ app.delete(`/articles`, (req, res) => {
     if (req.originalUrl.includes('favicon.ico')) {
       res.status(204).end()
     } else {
-      Article.deleteMany({});   
+      Article.deleteMany({}, function(err) {
+        res.send("We've deleted everything hahah!")
+      });   
     }
 })
 
